@@ -1,0 +1,715 @@
+/* ---------------------------------------------------------------------------------
+   this stylesheet is for my own data -> color, responsive design, my version of overlay
+   modal animation change included
+ -------------------------------------------------------------------------------- */
+
+
+/* animate pack ... */
+@import url(../css/animate.min.css);
+
+html {
+    /*-----------------------
+         var color 
+    -----------------------*/
+    --hei_col1: rgb(216, 164, 36);
+    --hei_col2: rgba(216, 164, 36, 0.8);
+    --dark1: rgb(42, 42, 42);
+    --dark2: rgb(45, 48, 51);
+    --dark3: rgb(57, 61, 65);
+    --dark4: rgb(64, 68, 73);
+    --white_smoke: #fafafaf1;
+    --tomato1: #f32326d8;
+    --tomato: tomato;
+    --other: #d8a424;
+}
+
+/* ---------------------------------------------------------------------------------
+   typo
+ -------------------------------------------------------------------------------- */
+.fs-13 { font-size: 13pt }
+.fs-12 { font-size: 12pt }
+.fs-11 { font-size: 11pt }
+
+/* ---------------------------------------------------------------------------------
+   custom
+ -------------------------------------------------------------------------------- */
+::selection {
+    /* color: var(--hei_col1); */
+    /* background-color: var(--dark1); */
+    background-color: var(--hei_col1);
+    color: var(--white_smoke);
+}
+::-moz-selection {
+    color: var(--hei_col1);
+    background-color: var(--dark1);
+}
+html img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* ------------------------------------------------------------------------------------------
+    main color
+-------------------------------------------------------------------------------------------*/
+.no-border  { border: none }
+.col-dark1  { color: var(--dark1) }
+.col-dark2  { color: var(--dark2) }
+.col-dark3  { color: var(--dark3) }
+.col-dark4  { color: var(--dark4) }
+.col-hei    { color: var(--hei_col1) }
+.bg-dark1   { background-color: var(--dark1) }
+.bg-dark2   { background-color: var(--dark2) }
+.bg-dark3   { background-color: var(--dark3)}
+.bg-hei     { background-color: var(--hei_col1) }
+.bg-hei-1     { background-color: var(--hei_col2) }
+.border-hei { border: 1px solid var(--hei_col1) }
+
+/* ------------------------------------------------------------------------------------------
+    modal editing
+-------------------------------------------------------------------------------------------*/
+.modal-footer {
+    padding: 2px !important;
+}
+.modal {
+    z-index: 99899 !important;
+}
+.modal-footer .btn {
+    margin-bottom: 15px;
+    padding: 12px;
+    margin-right: 10px;
+}
+.h-header {
+    border-top-right-radius: 100%;
+    position: relative;
+    z-index: 2;
+}
+.test {
+    z-index: 0;
+}
+.modal-footer {
+    position: relative;
+    border-top: none;
+}
+.modal-footer::after {
+    content: "";
+    background-color: rgba(43, 43, 43, 0.596);
+    border-bottom-right-radius: 100%;
+    box-shadow: 0 3px 4px rgb(42, 42, 42);
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 90%;
+    position: absolute;
+}
+.modal-header {
+    border-bottom: none;
+}
+
+.close-hei {
+    border: none;
+    z-index: 1;
+    color: var(--hei_col1);
+    background-color: var(--dark3);
+}
+.close-hei:hover, .close-hei:active {
+    background-color: var(--hei_col1);
+    color: white !important;
+}
+.close-hei:focus {
+    box-shadow: 0 0 0 0.2rem var(--dark1);
+}
+
+.close-hei-x /* x */ {
+    text-shadow: none;
+    opacity: 1;
+    color: var(--dark1);
+    font-weight: 900;
+    border: none;
+    box-shadow: 0 4px 3px rgba(42, 42, 42, 0.664);
+    background: none;
+    border-radius: 50%;
+    font-size: 14pt;
+    padding: 0px 8px !important;
+    transition: all, 0.3s;
+}
+.close-hei-x:hover {
+    color: rgba(219, 31, 31, 0.363) ;
+}
+
+
+/* ------------------------------------------------------
+    section more about HEI 
+------------------------------------------------------ */
+.moreHEI {
+    background-color: var(--dark1);
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+.more_about {
+    -moz-box-shadow: 0 0 0 1px rgba(216, 164, 36, .05);
+	-webkit-box-shadow: 0 0 0 1px rgba(216, 164, 36, .05);
+    box-shadow: 0 0 0 1px rgba(216, 164, 36, .05);
+    background-color: var(--dark2);
+    overflow: hidden;
+    position: relative;
+    height: 200px;
+    z-index: 998;
+    cursor: pointer;
+    transition: all, 0.3s ease-in-out;    
+    -o-transition: all, 0.3s ease-in-out;    
+    -moz-transition: all, 0.3s ease-in-out;
+    -webkit-transition: all, 0.3s ease-in-out;
+}
+.more_about:hover {
+    background-color: var(--hei_col1);
+}
+
+.more_about i {
+    text-shadow: 0 4px 8px rgba(45, 48, 51, 0.8);
+    font-size: 50pt;
+    position: absolute;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+    color: var(--hei_col1);
+}
+.more_about .overlay {
+	background: rgba(216, 164, 36, 0.8);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: contain;
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	-moz-transition: 0.4s ease-out;
+	-o-transition: 0.4s ease-out;
+	-webkit-transition: 0.4s ease-out;
+    transition: 0.4s ease-out;
+}
+.more_about .overlay-caption {
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	width: 100%;
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.more_about h3, .more_about p, .more_about i{
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	-webkit-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
+}
+.overlay h3 {
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* hover change */
+.more_about:hover .overlay, .more_about i:hover .overlay, .more_about:hover .overlay h3 {
+    opacity: 1;
+}
+
+.more_about:hover i {
+    color: var(--white_smoke);
+    font-size: 60pt;
+}
+
+
+
+
+/* ---------------------------------------------------------------------------------
+   HEADER
+ -------------------------------------------------------------------------------- */
+.top-header {
+    background: url(../img/Lou.webp) no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 750px;
+    background-position-y: 30px;
+}
+.top-header h1 {
+    font-size: 70px;
+    font-weight: 900;
+    color: white;
+    font-family: "open sans";
+}
+.mask {
+    background-color: rgb(3, 4, 5, .9);
+    width: 100%;
+    height: 100%;
+}
+.textHeader {
+    padding-right: 7%;
+    padding-top: 25%;
+    color: var(--white_smoke);
+    text-align: right;
+}
+.top-header img {
+    float: left;
+}
+/* ---------------------------------------------------------------------------------
+   bigNav IS FOR >= 1024 && littleNav is the opposite
+ -------------------------------------------------------------------------------- */
+.navigate.bigNav {
+    top: 0;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    /* background-color: rgb(255, 255, 255, .95); */
+    background-color: var(--dark2);
+    
+}
+.bigNav .where {
+    float: left;
+    padding-top: 1.5%;
+    padding-left: 2%;
+    width: 80%;
+    cursor: pointer;
+}
+.where a:hover {
+    color: rgba(255, 188, 19, 0.568);
+}
+.where a:nth-child(2) {
+    margin: 0 5%;
+}
+.where a:nth-child(3) {
+    margin-right: 5%;
+}
+.navigate.littleNav {
+    width: 0;
+    position: fixed;
+    top: 0;
+    box-shadow: -3px 0 20px rgb(216, 164, 37, .8);
+    padding: 0;
+    background-color: white;
+    left: 0;
+    height: 100%;
+    z-index: 999999;
+    overflow-x: hidden;
+    cursor: pointer;
+    transition: all, ease-in-out .5s;
+    -webkit-transition: all, ease-in-out .5s;
+}
+.littleNav nav {
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding-top: 5%;
+}
+.littleNav a {
+    cursor: pointer;
+    display: block;
+}
+.littleNav a:hover {
+    color: rgb(36, 36, 36);
+}
+
+/* ---------------------------------------------------------------------------------
+   option for sideBar (responsive case)
+ -------------------------------------------------------------------------------- */
+.showNav {
+    width: 30% !important;
+}
+.navOverlay {
+    background-color: rgba(0, 0, 0, .6);
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999989;
+    position: fixed;
+    display: none;
+    transition: all,  .5s;
+    -webkit-transition: all, ease-in-out .5s;
+}
+.navOverlayB {
+    display: block;
+}
+
+
+/* -----------------------------------------------------------
+    Savoir plus sur HEI 
+----------------------------------------------------------- */ 
+.welcoming {
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.welcoming span {
+    color: var(--hei_col1);
+}
+.bar-b {
+    background-color: var(--dark2);
+    border-top: 0;
+    height: 1.5em;
+}
+
+
+/* ------------------------------------------------------------
+   Alliance fr
+ ----------------------------------------------------------- */
+#alliance_carousel {
+    border: 1px solid var(--hei_col1);
+}
+.fr {
+    width: 100%;
+    height: 300px;
+    border-radius: 3px;
+}
+#alliance_fr p {
+    font-size: 13pt;
+    color: var(--dark3);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/* ------------------------------------------------------------
+   nos valeurs
+ ----------------------------------------------------------- */
+#ourValues h4 i {
+    padding: 1px;
+    font-size: 18pt;
+    box-shadow: 0 2px 2px rgb(45, 48, 51);
+}
+i.fa-bolt, i.fa-fist-raised {
+    padding: 0 6px !important;
+}
+.val-txt {
+    max-width: 90%;
+    font-size: 13pt;
+}
+.title hr {
+    display: none;
+    background-color: rgba(57, 57, 51, 0.2);
+}
+
+
+/* ------------------------------------------------------------
+   Bourse
+ ----------------------------------------------------------- */
+[href*="vatsy.org"]:hover {
+    color: var(--hei_col1);
+}
+span[class*="fee"] {
+    font-weight: 100;
+}
+
+
+/* ------------------------------------------------------------
+   contact
+ ----------------------------------------------------------- */
+#contact {
+    transition: all, 0.5s;
+    -o-transition: all, 0.5s;
+    -moz-transition: all, all, 0.5s;
+}
+#contact:hover {
+    background-color: var(--dark3);
+}
+.contact {
+    -webkit-user-drag: none;
+}
+.nav-up {
+    text-align: center;
+}
+.nav-up a {
+    float: left;
+    width: 100%;
+    font-size: 16pt;
+    transition: .5s ease-in-out;
+}
+.nav-up a:hover i {
+    color: white;
+}
+
+
+/* ---------------------------------------------------------------------------------
+   promo21
+ -------------------------------------------------------------------------------- */
+#promo21 .modal-body {
+    padding: 0;
+    margin: 0;
+}
+/* ------------------------------------------------------------------
+   side navigation
+ ----------------------------------------------------------------- */
+.sideBar ul {
+    padding: 5px 10px;
+    font-size: 13pt;
+    margin-left: 20%;
+}
+.sideBar li {
+    padding: 0;
+    transition: .5s ease-in-out;
+}
+.sideBar li:hover {
+    color: rgba(179, 179, 179, 0.877);
+}
+.sideBar img {
+    margin-left: 20%;
+}
+.sideBar .modal-footer {
+    border-top: 0.5px solid rgba(64, 68, 73, 0.548);
+    box-shadow: 0 -2px 4px rgb(42, 42, 42);
+}
+#promo21 .modal-header {
+    border: 0 !important;
+}
+.sideBar {
+    float: left;
+    width: 25%;
+    cursor: pointer;
+    min-height: 100%;
+    box-shadow: 2px 0 4px rgb(42, 42, 42);
+}
+.content {
+    overflow-y: scroll;
+    float: left;
+    max-height: 400px;
+    width: 75%;
+}
+.content h1 {
+    color: var(--hei_col1);
+}
+.activeMenu i{
+    color: rgba(216, 164, 36) !important;
+}
+.content img {
+    width: 100%;
+    border: 1px solid rgb(216, 164, 36);
+    border-radius: .2rem;
+}
+.UpArrow {
+    background-color: var(--hei_col1);
+    color: var(--dark1);
+    box-shadow: 0 5px 3px var(--dark1);
+}
+
+
+/* ---------------------------------------------------------------------------------
+Team preview
+-------------------------------------------------------------------------------- */
+.controlInfo {
+    background-color: rgb(216, 164, 36);
+    width: 100%;
+}
+.team {
+    min-height: 360px;
+    width: 100%;
+    background-color: rgb(36, 36, 36);
+    padding: 2%;
+    position: relative;
+    border: 1px solid rgb(42, 42, 42);
+}
+.cover {
+    height: 100%;
+    width: 100%;
+    padding: 6%;
+    border-radius: 1%;
+    border-bottom: 1px solid rgb(37, 36, 36);
+    /* background-color: rgb(216, 164, 36); */
+    background-image: url(../img/Saut.png);
+    background-size: cover;
+}
+.avatar {
+    height: 90px;
+    width: 90px;
+    left: 40px;
+    background-image: url(../img/Lou.webp);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    background-position-y: 2px;
+    border-radius: 50%;
+    border: 3px solid rgba(209, 209, 209, 0.925);
+}
+.avatarName {
+    color: var(--white_smoke);
+    font-weight: 500;
+}
+.previewName {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+.info {
+    margin-top: 38px;
+    margin-left: 25px;
+}
+.lou {
+    background-image: url(../img/Lou.webp);
+}
+.sandrine {
+    background-image: url(../img/Sandrine.webp);
+}
+.tahiana {
+    background-image: url(../img/Tahina.webp);
+}
+.parison {
+    background-image: url(../img/Parison.webp);
+}
+.toky {
+    /* i don't have an image */
+    background-image: url(../img/toky.jpg);
+    background-position-y: 20px;
+    background-size: 95px -20px;
+    background-position: left top;
+    filter: grayscale(1);
+}
+/* ---------------------------------------------------------------------------------
+   contact - know more
+ -------------------------------------------------------------------------------- */
+.sect {
+    float: left;
+    color: rgba(177, 177, 177, 0.788);
+    width: 50%;
+    text-align: right;
+}
+.C-contact > div {
+    margin-left: -30px;
+    font-size: 17px;
+    margin-top: 10px;
+}
+.location {
+    padding: 18px 16px 16px;
+    background-color: rgb(42, 42, 42);
+}
+.location img {
+    box-shadow: 0 2px 16px rgb(42, 42, 42);
+    cursor: pointer;
+}
+.location img:hover {
+    transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    border: 2px solid var(--hei_col1);
+}
+.C-contact, .nav-up {
+    background-color: rgb(42, 42, 42);
+    padding-top: 18px;
+}
+.C-contact a {
+    text-decoration: underline;
+    transition: .2s ease-in-out;
+    -o-transition: .2s ease-in-out;
+    -moz-transition: .2s ease-in-out;
+    -webkit-transition: .2s ease-in-out;
+    color: rgba(214, 214, 214, 0.781);
+}
+.C-contact a:hover {
+    color: var(--hei_col1);
+}
+#C-contact h4 {
+    margin-bottom: 16px;
+    padding: 8px;
+    /* border-bottom: 1px solid rgb(63, 63, 63); */
+}
+#C-contact .row {
+    box-shadow: 0 4px 4px rgba(42, 42, 42, 0.664), 0 -2px 4px rgba(34, 34, 34, 0.651);
+}
+.followUs {
+    height: auto;
+    text-align: center;
+}
+.follow {
+    font-size: 20pt;
+    background-color: rgb(24, 24, 24);
+    transition: all, .8s ease-in-out;
+    border-radius: 50%;
+    box-shadow: 0 4px 4px rgb(37, 36, 36),
+                0 2px 1px rgba(179, 179, 179, 0.8);
+}
+.follow:hover {
+    box-shadow: 0 2px 1px rgba(216, 164, 37),
+                0 4px 4px rgb(207, 154, 20);
+}
+.follow:hover i {
+    text-shadow: 0 4px 4px rgb(36, 36, 36);
+}
+.follow i {
+    color: rgb(216, 164, 36);
+    padding: 10px;
+}
+.end {
+    color: rgba(177, 177, 177, 0.788);
+    padding-top: 1%;
+    margin: 0;
+}
+
+/* ---------------------------------------------------------------------------------
+   Concours et parcours
+ -------------------------------------------------------------------------------- */
+#H-concours {
+    width: 100%;
+    height: 0;
+    overflow-y: hidden;
+    top: 0;
+    position: fixed;
+    /* background-color: rgb(0, 0, 0); */
+    background-color: rgb(36, 36, 36);
+    z-index: 99999;
+    transition: all, .5s ease-in-out;
+}
+.titleconcours h2 {
+    color: rgb(216, 164, 36);
+    text-align: center;
+    margin-bottom: 5%;
+}
+.contentconcours h3 {
+    color: white;
+    margin-bottom: 5%;
+}
+.inscription {
+    margin-top: 2%;
+    width: 100%;
+    padding: 16px;
+    background-color: rgb(216, 164, 36, .95);
+    border: none;
+    outline: none;
+}
+.inscription:hover, .inscription:focus{
+    outline: none;
+    background-color: rgb(207, 154, 20);
+}
+.inscription h5 {
+    color: var(--white_smoke);
+    margin: 0;
+}
+.activeConcours {
+    height: 100% !important;
+}
+.contentconcours p{
+    font-size: 15px;
+    margin-bottom: 6%;
+}
+.contentconcours b {
+    color: rgb(216, 164, 36, .75);
+}
+.contentconcours a {
+    color: black;
+}
+.fa-download {
+    font-size: 14pt;
+}
+.concoursDismiss {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    background-color: rgb(207, 154, 20);
+}
+.concoursDismiss:hover {
+    color: white;
+}
